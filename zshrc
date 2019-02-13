@@ -2,7 +2,8 @@ ZSH=$HOME/.oh-my-zsh
 
 # You can change the theme with another one:
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=random
+ZSH_THEME_RANDOM_CANDIDATES=("robbyrussell" "agnoster" "miloshadzic")
 
 # Add ruby version on prompt (float right)
 if [ -x "$(command -v rbenv)" ]; then RPS1='[$(ruby_prompt_info)]$EPS1'; fi
@@ -27,3 +28,7 @@ export PATH="./bin:${PATH}:/usr/local/sbin"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+DEFAULT_USER=$USER
+export PATH="$PATH:$HOME/.rvm/bin"
+
