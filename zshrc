@@ -13,6 +13,18 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time rvm battery)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
+
+POWERLEVEL9K_DIR_HOME_BACKGROUND=24
+POWERLEVEL9K_DIR_HOME_FOREGROUND=255
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=024
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=255
+
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=$'\uF408 '
+
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON="\ue0b0"
+# POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON="\ue0b1"
+
 # Configuration icon and multiline
 POWERLEVEL9K_CUSTOM_APPLE_ICON="echo -e '\uf179' "
 POWERLEVEL9K_CUSTOM_APPLE_ICON_BACKGROUND=234
@@ -26,6 +38,7 @@ POWERLEVEL9K_TIME_FORMAT="%D{\ue383 %H:%M \uf073 %d.%m.%Y}"
 
 #connection server distant
 POWERLEVEL9K_SSH_ICON='\uf68c'
+
 # definition du segment du prompt
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_apple_icon ssh context root_indicator dir dir_writable)
@@ -43,6 +56,7 @@ POWERLEVEL9K_STATUS_OK_BACKGROUND=232
 POWERLEVEL9K_STATUS_OK_FOREGROUND=46
 POWERLEVEL9K_STATUS_ERROR_BACKGROUND=232
 POWERLEVEL9K_STATUS_ERROR_FOREGROUND=196
+# POWERLEVEL9K_STATUS_VERBOSE=false
 
 
 
@@ -52,7 +66,18 @@ POWERLEVEL9K_STATUS_ERROR_FOREGROUND=196
 #if [[ -s ~/.rvm/scripts/rvm ]] ; then RPS1="[\$(~/.rvm/bin/rvm-prompt)]$EPS1"; fi
 
 # Useful plugins for Rails development with Sublime Text
-plugins=(gitfast brew rbenv last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search git colored-man-pages)
+plugins=(
+  gitfast
+  brew
+  rbenv
+  last-working-dir
+  common-aliases
+  sublime
+  zsh-syntax-highlighting
+  history-substring-search
+  git
+  colored-man-pages
+)
 
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
