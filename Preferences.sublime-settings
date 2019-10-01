@@ -13,8 +13,8 @@
 		".sass-cache",
 		"build"
 	],
-	"font_face": "monaco",
-	"font_size": 11,
+	"font_face": "Hack Nerd Font",
+	"font_size": 12,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
