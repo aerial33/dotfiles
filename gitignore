@@ -1,5 +1,8 @@
 # Mac OSX Finder hidden files
 .DS_Store
 
+# zshrc config
+.zshrc.swp
+
 # Figaro gem
 config/application.yml
