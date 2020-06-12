@@ -19,7 +19,9 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"rainbow_csv",
+		"zzz A File Icon zzz"
 	],
 	"material_theme_contrast_mode": true,
 	"material_theme_small_tab": true,
