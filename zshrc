@@ -3,7 +3,7 @@ POWERLEVEL9K_MODE='awesome-fontconfig'
 
 # You can change the theme with another one:
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME=random
 # ZSH_THEME_RANDOM_CANDIDATES=("robbyrussell" "agnoster" "miloshadzic")
 
@@ -111,3 +111,4 @@ export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bi
 DEFAULT_USER=$USER
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
