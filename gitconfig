@@ -3,7 +3,7 @@
   diff = auto
   interactive = auto
   status = auto
-  ui = auto
+	ui = auto
 
 [color "branch"]
   current = green
@@ -48,4 +48,4 @@
   mergeoptions = --no-edit
 [user]
 	email = perceval@protonmail.com
-	name = fouad
+	name = Fouad
