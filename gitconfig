@@ -11,7 +11,7 @@
 
 [core]
   pager = less -FRSX
-	editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+	editor = code
 
 [alias]
   co = checkout
@@ -47,5 +47,7 @@
 [branch "master"]
   mergeoptions = --no-edit
 [user]
-	email = perceval@protonmail.com
+	email = fouadezari@gmail.com
 	name = Fouad
+[init]
+	defaultBranch = main

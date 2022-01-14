@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 ZSH=$HOME/.oh-my-zsh
 POWERLEVEL9K_MODE='awesome-fontconfig'
 
@@ -20,6 +21,8 @@ plugins=(
   gitfast
   brew
   rbenv
+  node
+  themes
   last-working-dir
   common-aliases
   sublime
@@ -28,6 +31,10 @@ plugins=(
   history-substring-search
   git
   colored-man-pages
+  zsh-nvm
+  alias-finder
+  web-search
+  pyenv
 )
 
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
@@ -38,15 +45,26 @@ source "${ZSH}/oh-my-zsh.sh"
 
 # Rails and Ruby uses the local `bin` folder to store binstubs.
 # So instead of running `bin/rails` like the doc says, just run `rails`
-export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/opt/bin:/usr/local/sbin"
+export PATH="./bin:${PATH}:/usr/local/sbin"
+# PATH="$HOME/.bin:/usr/local/sbin:$PATH"
+
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
+# Highlighter-independent settings
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_STYLES[cursor]='bg=blue'
+
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=red'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=red'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
+
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 DEFAULT_USER=$USER
 
@@ -120,3 +138,7 @@ DEFAULT_USER=$USER
 
 # POWERLEVEL9K_RVM_FOREGROUND=160
 # POWERLEVEL9K_RUBY_ICON='\ue791'
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PATH:$PYENV_ROOT/shims"
+# eval "$(pyenv init --path)"
+
