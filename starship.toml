@@ -1,0 +1,87 @@
+format = """
+$env_var\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$fill\
+$cmd_duration $jobs\
+$nodejs\
+$ruby\
+$time\
+$localip\
+$battery\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold fg:196)"
+
+[directory]
+style = "bold fg:30"
+read_only = " "
+format = "[$path ]($style)"
+truncation_length = 4
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+
+[ruby]
+symbol = "♦️ (bold red)"
+format = "[$symbol($version )]($style)"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bright-black"
+
+[git_status]
+style = "bright-black"
+conflicted = "🏳"
+ahead = "🏎💨"
+up_to_date = "[✓](bold green)"
+untracked = "[⇡($count)?](bold red)"
+stashed = "📦"
+modified = "📝 +($count) "
+staged = '[++\($count\)](green)'
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol$number]($style)"
+
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " took [$duration]($style)"
+
+[time]
+disabled = false
+style = "bold white"
+format = '[\[$time\]]($style) '
+
+[battery]
+charging_symbol = "⚡️ "
+discharging_symbol = "💀 "
+[[battery.display]]
+threshold = 30
+
+[localip]
+ssh_only = true
+format = "@[$localipv4](bold bright-black) "
+disabled = false
+
+[env_var]
+variable = "OS"
+default = " ❯"
+style = "blink white"
+format = "[$env_value]($style) "
