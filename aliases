@@ -1,12 +1,46 @@
-# Get External IP / local IPs
+# IP
 alias ip="curl ipinfo.io/ip"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias ipi="curl ipinfo.io"
-# alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
-alias lc='colorls'
-alias ll='colorls -l'
-# alias python=/usr/local/bin/python3
-# Quickly serve the current directory as HTTP
-alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
+
+# Listing
+alias ll='eza -l --git --icons --header'
+alias ls='eza --icons'
+alias lstree='ls -T'
+
+# Serve current directory as HTTP
+alias serve='npx servor'
+
 # Make pyenv play nice with Homebrew
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+# Grep with color
+alias grep='grep --color=auto'
+
+# Safer defaults
+alias rm='rm -i'
+alias cp='cp -i'
+
+# Editor
+alias c='cursor'
+
+# mkdir + cd
+mkcd() { mkdir -p "$1" && cd "$1"; }
+
+# Docker
+alias dc='docker compose'
+alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias dlog='docker logs -f'
+alias dexec='docker exec -it'
+
+# Node / npm
+alias ni='npm install'
+alias nr='npm run'
+alias nrd='npm run dev'
+alias nrb='npm run build'
+alias pn='pnpm'
+
+# GitHub CLI
+alias ghpr='gh pr create'
+alias ghprl='gh pr list'
+alias ghprv='gh pr view --web'

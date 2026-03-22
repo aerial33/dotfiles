@@ -10,6 +10,7 @@ $git_metrics\
 $fill\
 $cmd_duration $jobs\
 $nodejs\
+$docker_context\
 $ruby\
 $time\
 $localip\
@@ -79,6 +80,15 @@ threshold = 30
 ssh_only = true
 format = "@[$localipv4](bold bright-black) "
 disabled = false
+
+[docker_context]
+symbol = "🐳 "
+format = "[$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+
 
 [env_var]
 variable = "OS"

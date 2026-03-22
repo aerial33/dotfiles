@@ -31,9 +31,9 @@ GREEN="\\033[1;32m"
 CURRENT_DIR=`pwd`
 ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
 mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"
-if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
-  echo "-----> Installing zsh plugin 'zsh-syntax-highlighting'..."
-  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+if [ ! -d "$ZSH_PLUGINS_DIR/fast-syntax-highlighting" ]; then
+  echo "-----> Installing zsh plugin 'fast-syntax-highlighting'..."
+  git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git
 fi
 cd "$CURRENT_DIR"
 
