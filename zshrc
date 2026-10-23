@@ -1,3 +1,4 @@
+DISABLE_AUTO_TITLE="true"
 export STARSHIP_CONFIG=~/Codes/aerial33/dotfiles/starship.toml
 # -------------------------
 # ENV BASICS
@@ -82,12 +83,17 @@ fi
 # -------------------------
 export NVM_DIR="$HOME/.nvm"
 
+# node le plus récent dans le PATH dès le démarrage, sans charger nvm.sh
+_nvm_node_dirs=("$NVM_DIR"/versions/node/v*(N/nOn))
+(( ${#_nvm_node_dirs} )) && export PATH="${_nvm_node_dirs[1]}/bin:$PATH"
+unset _nvm_node_dirs
+
 load_nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 }
 
 nvm() {
-  unset -f nvm node npm npx pnpm 2>/dev/null
+  unset -f nvm node npm npx 2>/dev/null
   load_nvm
   nvm "$@"
 }
@@ -95,14 +101,26 @@ nvm() {
 node() { unset -f node; load_nvm; node "$@"; }
 npm()  { unset -f npm;  load_nvm; npm "$@"; }
 npx()  { unset -f npx;  load_nvm; npx "$@"; }
-pnpm() { unset -f pnpm; load_nvm; pnpm "$@"; }
-
-# -------------------------
-# COREPACK (pnpm propre)
-# -------------------------
-if command -v corepack >/dev/null 2>&1; then
-  corepack enable >/dev/null 2>&1
-fi
 
 
 eval "$(starship init zsh)"
+
+# opencode
+export PATH=/Users/fouad/.opencode/bin:$PATH
+
+autoload -Uz add-zsh-hook
+
+_otty_short_title_precmd() {
+  print -Pn "\e]0;${${PWD/#$HOME/~}/#\~\//~ /}\a"
+}
+
+add-zsh-hook precmd _otty_short_title_precmd
+
+# -------------------------
+# pnpm (standalone)
+# -------------------------
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
